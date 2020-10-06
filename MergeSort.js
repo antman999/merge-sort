@@ -34,3 +34,19 @@ function merge(arr1, arr2) {
 
 	return results;
 }
+
+// ****************O(n log n)*******************
+//we are gonna use recursion to keep splitting the arrays for
+//the sort and merge function to work 
+function mergeSort(arr){
+    if(arr.length <=1)return arr;////base case once arr hits one
+   let mid = Math.floor(arr.length/2)// here we are finding the 
+   //midpoint 
+   let left = mergeSort(arr.slice(0,mid))
+   //we slice from 0 index to mid point index
+  let right = mergeSort(arr.slice(mid))
+  //right one will slice from there on 
+  return merge(left,right)
+  //then we run the merge function above 
+  
+}
